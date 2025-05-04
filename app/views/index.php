@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" /> 
   <title>Application | Home</title>
-  <link rel="icon" type="image/x-icon" href="/portal/apps/mvc-base/public/img/favicon.ico">
-  <link rel="stylesheet" href="/portal/apps/mvc-base/public/css/style.css">
+  <link rel="icon" type="image/x-icon" href="/timbo/public/img/favicon.ico">
+  <link rel="stylesheet" href="/timbo/public/css/style.css">
   <!-- Source Sans Pro Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="/portal/apps/mvc-base/public/css/vendor/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/timbo/public/css/vendor/font-awesome/css/all.min.css">
   <!-- AdminLTE App -->
-  <link rel="stylesheet" href="/portal/apps/mvc-base/public/css/vendor/adminlte/adminlte.min.css">
+  <link rel="stylesheet" href="/timbo/public/css/vendor/adminlte/adminlte.min.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
@@ -70,9 +70,9 @@
 
   <div class="scripts" style="display: none;">
     <!-- jQuery -->
-    <script src="/portal/apps/mvc-base/public/js/vendor/jquery/jquery.min.js"></script>
+    <script src="/timbo/public/js/vendor/jquery/jquery.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="/portal/apps/mvc-base/public/js/vendor/adminlte/adminlte.min.js"></script>
+    <script src="/timbo/public/js/vendor/adminlte/adminlte.min.js"></script>
   </div>
 </body>
 </html>

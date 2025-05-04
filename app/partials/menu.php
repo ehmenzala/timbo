@@ -1,4 +1,4 @@
-<a href="/portal/apps/mvc-base/" class="brand-link">
+<a href="/timbo/" class="brand-link">
   <img
     class="brand-image img-circle elevation-3"
     src="#"
@@ -11,10 +11,10 @@
   <!-- Sidebar user panel (optional) -->
   <div class="user-panel mt-3 pb-3 mb-3 d-flex">
     <div class="image">
-      <img src="public/img/avatars/<?= $avatar ?>" class="img-circle elevation-2" alt="User Image">
+      <img src="/timbo/public/img/avatars/anonimo.jpg" class="img-circle elevation-2" alt="User Image">
     </div>
     <div class="info">
-      <a href="#" class="d-block"><?= $nombres ?></a>
+      <a href="#" class="d-block">Nombres</a>
     </div>
   </div>
 
