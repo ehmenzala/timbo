@@ -13,9 +13,8 @@ Esta base se ha desarrollado con el objetivo de ser agnóstica al tipo de proyec
 - `/app/`: Código fuente de la aplicación.
 - `/app/partials/:` Archivos parciales (Header, footer, navbar) que son incluidos en otras vistas PHP.
 - `/app/views/:` Las vistas son las interfaces visuales en que se muestra la información pertinente.
-- `/app/services/:` Los servicios contienen lógica de negocio y de acceso a los datos.
+- `/app/repositories/:` Los repositorios contienen lógica de acceso a los datos.
 - `/app/controllers/:` Los controladores orquestan la interacción entre vistas y el modelo de datos.
-- `/app/services/UserService.php`: Servicio de Usuario. Permite recopilar información del usuario autenticado y que puede reutilizarse en todas las vistas.
 
 **Librerías:**
 
