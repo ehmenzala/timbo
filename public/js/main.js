@@ -27,6 +27,11 @@ $closeCartBtn.addEventListener('click', () => {
   $cartOverlay.classList.add('closed')
 })
 
+$cartOverlay.addEventListener('click', () => {
+  $cart.classList.add('closed')
+  $cartOverlay.classList.add('closed')
+})
+
 /* Dynamically add product to cart */
 let productIndex = 0
 $productsElements.forEach($p => {
