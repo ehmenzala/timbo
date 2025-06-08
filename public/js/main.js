@@ -1,3 +1,4 @@
+const $cart = document.getElementById('cart')
 const $cartProductsList = document.getElementById('cart-products-list')
 const $productsElements = document.querySelectorAll('.product')
 
@@ -11,6 +12,22 @@ function extractProductData($productElement) {
   }
 }
 
+/* Cart controls */
+$closeCartBtn = $cart.querySelector('.cart-header__close-btn');
+$openCartBtn = document.querySelector('.header__cart-btn')
+$cartOverlay = document.querySelector('.cart-overlay')
+
+$openCartBtn.addEventListener('click', () => {
+  $cart.classList.remove('closed')
+  $cartOverlay.classList.remove('closed')
+})
+
+$closeCartBtn.addEventListener('click', () => {
+  $cart.classList.add('closed')
+  $cartOverlay.classList.add('closed')
+})
+
+/* Dynamically add product to cart */
 let productIndex = 0
 $productsElements.forEach($p => {
   $p.addEventListener('click', (e) => {
@@ -89,8 +106,7 @@ $productsElements.forEach($p => {
   })
 })
 
-
-const $cart = document.getElementById('cart')
+/* Re-calculate subtotal */
 const $subtotal = document.getElementById('cart-total-price')
 
 $cart.addEventListener('input', (e) => {

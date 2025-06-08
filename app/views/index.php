@@ -9,8 +9,14 @@
 <body>
   <?php include("app/partials/header.php") ?>
   <main style="position: relative;">
-    <article class="cart collapsed" id="cart">
-      <h2>Orden</h2>
+    <div class="cart-overlay closed"></div>
+    <article class="cart closed" id="cart">
+      <header class="cart-header">
+        <h2>Orden</h2>
+        <button class="cart-header__close-btn cart-product__control">
+          <img src="/timbo/public/img/close-icon.svg" alt="Close icon">
+        </button>
+      </header>
       <ul class="cart-products" id="cart-products-list" role="list">
         <!-- <li class="cart-product">
           <div class="cart-product__detail">
