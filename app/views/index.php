@@ -7,27 +7,51 @@
   <link rel="stylesheet" href="/timbo/public/css/style.css">
 </head>
 <body>
-  <header class="header">
-    <div class="header__content container">
-      <img
-        src="/timbo/public/img/timbo-logo.png"
-        alt="Logo del restaurante. Gran Parrillada Timbó escrito con letras rojas cuadriculadas dentro de un espacio ovalado, con borde grueso de color turquesa."
-        class="header-logo"
-      />
-      <div class="header__controls">
-        <form action="#" method="POST">
-          <div class="header-search-wrapper">
-            <input class="header-search" type="search" name="term" id="term" placeholder="Buscar menú">
+  <?php include("app/partials/header.php") ?>
+  <main style="position: relative;">
+    <article class="cart collapsed" id="cart">
+      <h2>Orden</h2>
+      <ul class="cart-products" id="cart-products-list" role="list">
+        <!-- <li class="cart-product">
+          <div class="cart-product__detail">
+            <header class="cart-product__header">
+              <h3>Título del Producto</h3>
+              <button class="cart-product__remove-btn cart-product__control" aria-label="Remove product">
+                <img src="/timbo/public/img/remove-icon.svg" alt="Remove icon">
+              </button>
+            </header>
+            <div class="cart-product__body">
+              <p class="cart-product__price">S/49.90</p>
+              <p class="cart-product__description">Descripción detallada del producto en cuestión.</p>
+            </div>
+            <div class="cart-product__amount">
+              <button class="cart-product__minus-btn cart-product__control">
+                <img src="/timbo/public/img/minus-icon.svg" alt="Remove icon">
+              </button>
+              <input
+                type="number"
+                min="0"
+                value="1"
+                class="cart-product__amount-input"
+              >
+              <button class="cart-product__add-btn cart-product__control">
+                <img src="/timbo/public/img/plus-icon.svg" alt="Remove icon">
+              </button>
+            </div>
           </div>
-        </form>
-        <a class="header-login-link" href="#">Iniciar Sesión o Registrarse</a>
-        <button class="header__cart-btn">
-          <img src="/timbo/public/img/cart-icon.svg" aria-hidden="true" alt="Ícono de carrito">
-        </button>
+          <div class="cart-product__image">
+            <img src="/timbo/public/img/food-image-2.webp" alt="Ícono" aria-hidden="true" class="menu-tab__icon">
+          </div>
+        </li> -->
+      </ul>
+      <div class="cart-total-content">
+        <span class="cart-total-content__title">Subtotal</span>
+        <span class="cart-total-content__price" id="cart-total-price">S/149.70</span>
       </div>
-    </div>
-  </header>
-  <main>
+      <div class="cart-confirm">
+        <a href="#" class="cart-confirm__btn btn btn-warning">Confirmar</a>
+      </div>
+    </article>
     <div class="container">
       <h1>Carta</h1>
       <ul class="menu-tabs" role="list">
@@ -70,16 +94,22 @@
       </ul>
       <h2>Escoger Platillo</h2>
       <section class="products">
-        <article class="product">
+        <article
+          class="product"
+          data-product-title="Product Title"
+          data-product-price="25.00"
+          data-product-id="2"
+          data-product-description="Descripción detallada"
+          >
           <img src="/timbo/public/img/food-image-2.webp" alt="Imagen de Producto" class="product__img">
           <div class="product__detail">
             <h3 class="product__title">Producto</h3>
             <p class="product__description">Producto</p>
             <p class="product__price">S/49.90</p>
           </div>
-          <a href="#" class="product__btn btn btn-primary">
+          <button href="#" class="product__btn btn btn-primary">
             Agregar
-          </a>
+        </button>
         </article>
         <article class="product">
           <img src="/timbo/public/img/food-image-2.webp" alt="Imagen de Producto" class="product__img">
@@ -88,9 +118,9 @@
             <p class="product__description">Producto</p>
             <p class="product__price">S/49.90</p>
           </div>
-          <a href="#" class="product__btn btn btn-primary">
+          <button href="#" class="product__btn btn btn-primary">
             Agregar
-          </a>
+        </button>
         </article>
         <article class="product">
           <img src="/timbo/public/img/food-image-2.webp" alt="Imagen de Producto" class="product__img">
@@ -99,9 +129,9 @@
             <p class="product__description">Producto</p>
             <p class="product__price">S/49.90</p>
           </div>
-          <a href="#" class="product__btn btn btn-primary">
+          <button href="#" class="product__btn btn btn-primary">
             Agregar
-          </a>
+        </button>
         </article>
         <article class="product">
           <img src="/timbo/public/img/food-image-2.webp" alt="Imagen de Producto" class="product__img">
@@ -110,9 +140,9 @@
             <p class="product__description">Producto</p>
             <p class="product__price">S/49.90</p>
           </div>
-          <a href="#" class="product__btn btn btn-primary">
+          <button href="#" class="product__btn btn btn-primary">
             Agregar
-          </a>
+        </button>
         </article>
         <article class="product">
           <img src="/timbo/public/img/food-image-2.webp" alt="Imagen de Producto" class="product__img">
@@ -121,9 +151,9 @@
             <p class="product__description">Producto</p>
             <p class="product__price">S/49.90</p>
           </div>
-          <a href="#" class="product__btn btn btn-primary">
+          <button href="#" class="product__btn btn btn-primary">
             Agregar
-          </a>
+        </button>
         </article>
         <article class="product">
           <img src="/timbo/public/img/food-image-2.webp" alt="Imagen de Producto" class="product__img">
@@ -132,9 +162,9 @@
             <p class="product__description">Producto</p>
             <p class="product__price">S/49.90</p>
           </div>
-          <a href="#" class="product__btn btn btn-primary">
+          <button href="#" class="product__btn btn btn-primary">
             Agregar
-          </a>
+        </button>
         </article>
         <article class="product">
           <img src="/timbo/public/img/food-image-2.webp" alt="Imagen de Producto" class="product__img">
@@ -143,9 +173,9 @@
             <p class="product__description">Producto</p>
             <p class="product__price">S/49.90</p>
           </div>
-          <a href="#" class="product__btn btn btn-primary">
+          <button href="#" class="product__btn btn btn-primary">
             Agregar
-          </a>
+        </button>
         </article>
         <article class="product">
           <img src="/timbo/public/img/food-image-2.webp" alt="Imagen de Producto" class="product__img">
@@ -154,68 +184,15 @@
             <p class="product__description">Producto</p>
             <p class="product__price">S/49.90</p>
           </div>
-          <a href="#" class="product__btn btn btn-primary">
+          <button href="#" class="product__btn btn btn-primary">
             Agregar
-          </a>
+        </button>
         </article>
         
       </section>
     </div>
   </main>
-  <footer class="footer">
-    <section class="footer-content">
-      <div class="footer-item">
-        <p>Las mejores parrillas y pollos a la brasa con el toque tradicional de siempre, desde 1974.</p>
-        <img
-          src="/timbo/public/img/timbo-logo.png"
-          alt="Logo del restaurante. Gran Parrillada Timbó escrito con letras rojas cuadriculadas dentro de un espacio ovalado, con borde grueso de color turquesa."
-          class="footer-logo"
-        >
-      </div>
-      <div class="footer-item">
-        <h4 class="footer-item__title">Enlaces</h4>
-        <ul class="footer-links" role="list">
-          <li>
-            <a class="footer-link" href="/timbo/">Home</a>
-          </li>
-          <li>
-            <a class="footer-link" href="/timbo/">Carta</a>
-          </li>
-          <li>
-            <a class="footer-link" href="/timbo/login/">Iniciar Sesión</a>
-          </li>
-          <li>
-            <a class="footer-link" href="/timbo/register/">Registrarse</a>
-          </li>
-        </ul>
-      </div>
-      <div class="footer-item">
-        <h4 class="footer-item__title">Libro de Reclamaciones</h4>
-        <ul class="footer-links" role="list">
-          <li>
-            <a class="footer-link" href="#">Ingresar un Reclamo</a>
-          </li>
-        </ul>
-      </div>
-      <div class="footer-item">
-        <h4 class="footer-item__title">Encuesta de Satisfacción</h4>
-        <ul class="footer-links" role="list">
-          <li>
-            <a class="footer-link" href="#">Ir a la Encuesta</a>
-          </li>
-        </ul>
-      </div>
-      <div class="footer-item">
-        <h4 class="footer-item__title">Síguenos en</h4>
-        <ul class="footer-links" role="list">
-          <li>
-            <a class="footer-link" href="https://www.facebook.com/granparrilladatimbo/" aria-label="Facebook" target="_blank">
-              <img src="/timbo/public/img/facebook-icon.svg" aria-hidden="true" alt="ícono de Facebook">
-            </a>
-          </li>
-        </ul>
-      </div>
-    </section>
-  </footer>
+  <?php include('app/partials/footer.php') ?>
+  <script src="/timbo/public/js/main.js"></script>
 </body>
 </html>
