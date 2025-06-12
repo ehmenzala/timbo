@@ -1,6 +1,7 @@
 <?php
 
-class PaymentMethod {
+class PaymentMethod
+{
 
   public function __construct(
     private int $id,
@@ -9,20 +10,23 @@ class PaymentMethod {
     private string $description,
   ) {}
 
-  public function getId(): int {
+  public function getId(): int
+  {
     return $this->id;
   }
 
-  public function getName(): string {
+  public function getName(): string
+  {
     return $this->name;
   }
 
-  public function getOwner(): string {
+  public function getOwner(): string
+  {
     return $this->owner;
   }
 
-  public function getDescription(): string {
+  public function getDescription(): string
+  {
     return $this->description;
   }
-
 }

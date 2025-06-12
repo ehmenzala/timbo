@@ -1,6 +1,7 @@
 <?php
 
-class Order {
+class Order
+{
 
   public function __construct(
     private int $id,
@@ -11,25 +12,34 @@ class Order {
     private array $orderItems,
   ) {}
 
-  public function getId(): int {
+  public function getId(): int
+  {
     return $this->id;
   }
 
-  public function getDate(): DateTime {
+  public function getDate(): DateTime
+  {
     return $this->date;
   }
 
-  public function getUser(): User {
+  public function getUser(): User
+  {
     return $this->user;
   }
 
-  public function getPaymentMethod(): PaymentMethod {
+  public function getPaymentMethod(): PaymentMethod
+  {
     return $this->paymentMethod;
   }
 
   /** @return OrderItem[] */
-  public function getOrderItems(): array {
+  public function getOrderItems(): array
+  {
     return $this->orderItems;
   }
 
+  public function getTotal(): float
+  {
+    return array_reduce($this->orderItems, fn($total, $orderItem) => $total + $orderItem->getTotal(), 0);
+  }
 }

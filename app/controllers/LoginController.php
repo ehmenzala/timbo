@@ -1,23 +1,27 @@
 <?php
 
-class LoginController {
+class LoginController
+{
 
-  public function __construct() {
-  }
+  public function __construct() {}
 
-  public function index(): void {
+  public function index(): void
+  {
     require 'app/views/login.html';
   }
 
-  public function register(): void {
+  public function register(): void
+  {
     require 'app/views/register.html';
   }
 
-  public function logUserIn(): void {
+  public function logUserIn(): void
+  {
     header("location: /timbo/");
   }
 
-  public function storeUser(): void {
+  public function storeUser(): void
+  {
     header("location: /timbo/login/");
   }
 }
