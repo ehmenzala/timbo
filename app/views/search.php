@@ -61,7 +61,7 @@
       </div>
     </article>
     <div class="container">
-      <h1>Carta</h1>
+      <h1>Resultados para la Búsqueda '<?= $searchTerm ?>'</h1>
       <ul class="menu-tabs" role="list">
         <li class="menu-tab">
           <img src="/timbo/public/img/pizza-icon.svg" alt="Ícono" aria-hidden="true" class="menu-tab__icon">
