@@ -1,6 +1,6 @@
 <?php
 
-class Role
+class UserRole
 {
 
   public function __construct(

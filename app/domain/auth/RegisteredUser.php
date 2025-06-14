@@ -1,24 +1,27 @@
 <?php
 
-class User
+class RegisteredUser
 {
 
   public function __construct(
-    private int $id,
+    private ?int $id,
     private string $name,
     private string $surname,
     private string $email,
-    private string $passsword,
-    private string $dni,
-    private string $phone,
-    private string $address,
+    private string $password,
+    private string $documentNumber,
     /** @var UserRole[] */
     private array $roles,
   ) {}
 
-  public function getId(): int
+  public function getId(): ?string
   {
     return $this->id;
+  }
+
+  public function setId(int $id): void
+  {
+    $this->id = $id;
   }
 
   public function getName(): string
@@ -36,24 +39,14 @@ class User
     return $this->email;
   }
 
-  public function getPasssword(): string
+  public function getPassword(): string
   {
-    return $this->passsword;
+    return $this->password;
   }
 
-  public function getDNI(): string
+  public function getDocumentNumber(): string
   {
-    return $this->dni;
-  }
-
-  public function getPhone(): string
-  {
-    return $this->phone;
-  }
-
-  public function getAddress(): string
-  {
-    return $this->address;
+    return $this->documentNumber;
   }
 
   /** @return UserRole[] */

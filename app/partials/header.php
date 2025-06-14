@@ -10,7 +10,19 @@
           <input class="header-search" type="search" name="term" id="term" placeholder="Buscar en el menú">
         </div>
       </form>
-      <a class="header-login-link" href="#">Iniciar Sesión o Registrarse</a>
+      <?php $sessionExists = UserSession::getValue('user-id') !== null; ?>
+      <?php if ($sessionExists): ?>
+        <a class="header-login-link" href="/timbo/login/">
+          Hola, <?= UserSession::getValue('user-name') ?>
+        </a>
+        <a class="header-login-link" href="/timbo/logout/user/">
+          Cerrar Sesión
+        </a>
+      <?php else: ?>
+        <a class="header-login-link" href="/timbo/login/">
+          Iniciar Sesión o Registrarse
+        </a>
+      <?php endif; ?>
       <button class="header__cart-btn">
         <img src="/timbo/public/img/cart-icon.svg" aria-hidden="true" alt="Ícono de carrito">
       </button>
