@@ -5,8 +5,7 @@
       <img
         src="/timbo/public/img/timbo-logo.png"
         alt="Logo del restaurante. Gran Parrillada Timbó escrito con letras rojas cuadriculadas dentro de un espacio ovalado, con borde grueso de color turquesa."
-        class="footer-logo"
-      >
+        class="footer-logo">
     </div>
     <div class="footer-item">
       <h4 class="footer-item__title">Enlaces</h4>
@@ -29,7 +28,7 @@
       <h4 class="footer-item__title">Libro de Reclamaciones</h4>
       <ul class="footer-links" role="list">
         <li>
-          <a class="footer-link" href="#">Ingresar un Reclamo</a>
+          <a class="footer-link" href="https://docs.google.com/forms/d/e/1FAIpQLSexXgXslKjCXtLjuZ5iv0JFBCzJ8Sb3VKEro0NkjDJWCMJk9Q/viewform?usp=header">Ingresar un Reclamo</a>
         </li>
       </ul>
     </div>
@@ -37,7 +36,7 @@
       <h4 class="footer-item__title">Encuesta de Satisfacción</h4>
       <ul class="footer-links" role="list">
         <li>
-          <a class="footer-link" href="#">Ir a la Encuesta</a>
+          <a class="footer-link" href="https://docs.google.com/forms/d/e/1FAIpQLSelZhNDGRUMP6TLSn0qBg8GdNQ1lDdr3upQ57xHbxMbcKHsCQ/viewform?usp=header">Ir a la Encuesta</a>
         </li>
       </ul>
     </div>
