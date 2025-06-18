@@ -1,8 +1,10 @@
 <?php
 
-session_start();
-
 $BASE_PATH = __DIR__;
+
+require $BASE_PATH . '/app/domain/ProductOnCart.php';
+
+session_start();
 
 require $BASE_PATH . '/Router.php';
 
@@ -12,12 +14,16 @@ require $BASE_PATH . '/app/controllers/MenuController.php';
 require $BASE_PATH . '/app/controllers/LoginController.php';
 
 require $BASE_PATH . '/app/domain/ProductSummary.php';
+require $BASE_PATH . '/app/domain/OrderSummary.php';
+require $BASE_PATH . '/app/domain/PaymentMethod.php';
 require $BASE_PATH . '/app/domain/auth/LoggedInUser.php';
 require $BASE_PATH . '/app/domain/auth/RegisteredUser.php';
 require $BASE_PATH . '/app/domain/auth/UserRole.php';
 require $BASE_PATH . '/app/domain/repositories/PdoProductRepository.php';
 require $BASE_PATH . '/app/domain/repositories/PdoUserRepository.php';
 require $BASE_PATH . '/app/domain/repositories/PdoUserRoleRepository.php';
+require $BASE_PATH . '/app/domain/repositories/PdoPaymentMethodRepository.php';
+require $BASE_PATH . '/app/domain/repositories/PdoOrderSummaryRepository.php';
 
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $method = $_SERVER['REQUEST_METHOD'];
@@ -34,16 +40,29 @@ $pdoUserRepository = new PdoUserRepository(
   $pdoUserRoleRepository
 );
 
-$menuController = new MenuController($pdoProductRepository);
+$pdoPaymentMethodRepository = new PdoPaymentMethodRepository($db);
+$pdoOrderSummaryRepository = new PdoOrderSummaryRepository(
+  $db,
+  $pdoProductRepository,
+);
+
+/* Controllers */
+$menuController = new MenuController(
+  $pdoProductRepository,
+  $pdoPaymentMethodRepository,
+  $pdoOrderSummaryRepository,
+);
 $loginController = new LoginController(
   $pdoUserRepository,
   $pdoUserRoleRepository
 );
 
-// 1. Index
+// 1. Menu
 $router->get('/timbo/', [$menuController, 'index']);
 $router->get('/timbo/busqueda/', [$menuController, 'search']);
 $router->get('/timbo/compra/', [$menuController, 'purchase']);
+$router->post('/timbo/process/purchase/', [$menuController, 'redirectPurchase']);
+$router->post('/timbo/make/order/', [$menuController, 'storeOrder']);
 
 // 2. Menu
 

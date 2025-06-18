@@ -58,7 +58,7 @@ $productsElements.forEach($p => {
           </div>
           <div class="cart-product__amount">
             <input type="hidden" name="products[${productIndex}][id]" value="${product.id}">
-            <button class="cart-product__minus-btn cart-product__control">
+            <button type="button" class="cart-product__minus-btn cart-product__control">
               <img src="/timbo/public/img/minus-icon.svg" alt="Remove icon">
             </button>
             <input
@@ -68,7 +68,7 @@ $productsElements.forEach($p => {
               value="1"
               class="cart-product__amount-input"
             >
-            <button class="cart-product__plus-btn cart-product__control">
+            <button type="button" class="cart-product__plus-btn cart-product__control">
               <img src="/timbo/public/img/plus-icon.svg" alt="Remove icon">
             </button>
           </div>

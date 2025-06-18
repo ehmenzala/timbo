@@ -8,7 +8,7 @@ class PdoProductRepository
   ) {}
 
   /** @return ProductSummary[] */
-  public function findAllProductSummary()
+  public function findAllProductSummary(): array
   {
     $st = $this->db->prepare("
       SELECT p.id, p.name, p.price, p.image,
@@ -39,7 +39,7 @@ class PdoProductRepository
   }
 
   /** @return ProductSummary[] */
-  public function findProductSummaryByProductTypeId(int $productTypeId)
+  public function findProductSummaryByProductTypeId(int $productTypeId): array
   {
     $st = $this->db->prepare("
       SELECT p.id, p.name, p.price, p.image,
@@ -69,8 +69,35 @@ class PdoProductRepository
     return $products;
   }
 
+  public function findProductSummaryById(int $productId): ?ProductSummary
+  {
+    $st = $this->db->prepare("
+      SELECT p.id, p.name, p.price, p.image,
+        p.detail, pt.name AS product_type
+      FROM product p
+        INNER JOIN product_type pt
+          ON pt.id = p.product_type_id
+      WHERE p.id = :productId
+    ");
+    $st->execute([':productId' => $productId]);
+    $result = $st->fetch();
+
+    if (!$result) {
+      return null;
+    }
+
+    return new ProductSummary(
+      $result['id'],
+      $result['name'],
+      $result['price'],
+      $result['image'],
+      $result['detail'],
+      $result['product_type'],
+    );
+  }
+
   /** @return ProductSummary[] */
-  public function findProductSummaryBySearchTerm(string $searchTerm)
+  public function findProductSummaryBySearchTerm(string $searchTerm): array
   {
     $st = $this->db->prepare("
       SELECT p.id, p.name, p.price, p.image,

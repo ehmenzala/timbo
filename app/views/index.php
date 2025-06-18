@@ -19,45 +19,47 @@
           <img src="/timbo/public/img/close-icon.svg" alt="Close icon">
         </button>
       </header>
-      <ul class="cart-products" id="cart-products-list" role="list">
-        <!-- <li class="cart-product">
-          <div class="cart-product__detail">
-            <header class="cart-product__header">
-              <h3>Título del Producto</h3>
-              <button class="cart-product__remove-btn cart-product__control" aria-label="Remove product">
-                <img src="/timbo/public/img/remove-icon.svg" alt="Remove icon">
-              </button>
-            </header>
-            <div class="cart-product__body">
-              <p class="cart-product__price">S/49.90</p>
-              <p class="cart-product__description">Descripción detallada del producto en cuestión.</p>
+      <form action="/timbo/process/purchase/" id="cart-products-form" method="POST">
+        <ul class="cart-products" id="cart-products-list" role="list">
+          <!-- <li class="cart-product">
+            <div class="cart-product__detail">
+              <header class="cart-product__header">
+                <h3>Título del Producto</h3>
+                <button class="cart-product__remove-btn cart-product__control" aria-label="Remove product">
+                  <img src="/timbo/public/img/remove-icon.svg" alt="Remove icon">
+                </button>
+              </header>
+              <div class="cart-product__body">
+                <p class="cart-product__price">S/49.90</p>
+                <p class="cart-product__description">Descripción detallada del producto en cuestión.</p>
+              </div>
+              <div class="cart-product__amount">
+                <button class="cart-product__minus-btn cart-product__control">
+                  <img src="/timbo/public/img/minus-icon.svg" alt="Remove icon">
+                </button>
+                <input
+                  type="number"
+                  min="0"
+                  value="1"
+                  class="cart-product__amount-input"
+                >
+                <button class="cart-product__add-btn cart-product__control">
+                  <img src="/timbo/public/img/plus-icon.svg" alt="Remove icon">
+                </button>
+              </div>
             </div>
-            <div class="cart-product__amount">
-              <button class="cart-product__minus-btn cart-product__control">
-                <img src="/timbo/public/img/minus-icon.svg" alt="Remove icon">
-              </button>
-              <input
-                type="number"
-                min="0"
-                value="1"
-                class="cart-product__amount-input"
-              >
-              <button class="cart-product__add-btn cart-product__control">
-                <img src="/timbo/public/img/plus-icon.svg" alt="Remove icon">
-              </button>
+            <div class="cart-product__image">
+              <img src="/timbo/public/img/food-image-2.webp" alt="Ícono" aria-hidden="true" class="menu-tab__icon">
             </div>
-          </div>
-          <div class="cart-product__image">
-            <img src="/timbo/public/img/food-image-2.webp" alt="Ícono" aria-hidden="true" class="menu-tab__icon">
-          </div>
-        </li> -->
-      </ul>
+          </li> -->
+        </ul>
+      </form>
       <div class="cart-total-content">
         <span class="cart-total-content__title">Subtotal</span>
         <span class="cart-total-content__price" id="cart-total-price">S/00.00</span>
       </div>
       <div class="cart-confirm">
-        <a href="#" class="cart-confirm__btn btn btn-warning">Confirmar</a>
+        <button style="width: 100%;" type="submit" form="cart-products-form" class="cart-confirm__btn btn btn-warning">Confirmar</button>
       </div>
     </article>
     <div class="container">

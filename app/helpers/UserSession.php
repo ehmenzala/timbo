@@ -6,7 +6,7 @@ class UserSession
   public function __construct() {}
 
 
-  public static function getValue(string $key): ?string
+  public static function getValue(string $key): mixed
   {
     return $_SESSION[$key] ?? null;
   }
