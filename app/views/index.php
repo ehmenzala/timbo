@@ -127,7 +127,7 @@
             <div class="product__detail">
               <h3 class="product__title"><?= $product->getName() ?></h3>
               <p class="product__description"><?= $product->getDetail() ?></p>
-              <p class="product__price">S/<?= $product->getId() ?></p>
+              <p class="product__price">S/<?= $product->getPrice() ?></p>
             </div>
             <button href="#" class="product__btn btn btn-primary">
               Agregar
