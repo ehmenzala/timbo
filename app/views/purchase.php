@@ -17,26 +17,26 @@
       <form action="/timbo/make/order/" method="POST">
         <p class="h4">Tipo de Comprobante</p>
         <label for="boleta">Boleta</label>
-        <input type="radio" name="tipo-comprobante" id="boleta" value="boleta">
+        <input type="radio" name="tipo-comprobante" id="boleta" value="boleta" required>
         <label for="factura">Factura</label>
-        <input type="radio" name="tipo-comprobante" id="factura" value="factura">
+        <input type="radio" name="tipo-comprobante" id="factura" value="factura" required>
         <label for="doc-type" class="h4">Tipo de Documento</label>
-        <select id="doc-type" name="doc-type">
+        <select id="doc-type" name="doc-type" required>
           <option value="1">DNI</option>
           <option value="2">CE</option>
         </select>
         <label for="doc-number" class="h4">Número de Documento</label>
-        <input type="number" min="0" id="doc-number" name="doc-number">
+        <input type="number" min="0" id="doc-number" name="doc-number" required>
         <label for="tel" class="h4">Celular</label>
-        <input type="tel" id="tel" name="tel">
+        <input type="tel" id="tel" name="tel" required>
         <label for="payment-method" class="h4">Forma de Pago</label>
-        <select id="payment-method" name="payment-method">
+        <select id="payment-method" name="payment-method" required>
           <?php foreach ($allPaymentMethods as $paymentMethod): ?>
             <option value="<?= $paymentMethod->getId() ?>"><?= $paymentMethod->getName() ?></option>
           <?php endforeach; ?>
         </select>
         <label for="location" class="h4">Ubicación</label>
-        <input type="text" id="location" name="location">
+        <input type="text" id="location" name="location" required>
         <h2>Resumen de tu Compra</h2>
         <ul>
           <?php $totalPrice = 0 ?>
@@ -58,8 +58,6 @@
         </ul>
         <p class="h4">Subtotal</p>
         <p>S/<?= number_format($totalPrice, 2) ?></p>
-        <p class="h4">Delivery</p>
-        <p>S/4.90</p>
         <button>Hacer pedido</button>
       </form>
     </div>

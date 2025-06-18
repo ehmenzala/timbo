@@ -68,6 +68,8 @@ $adminController = new AdminController(
 $router->get('/timbo/', [$menuController, 'index']);
 $router->get('/timbo/busqueda/', [$menuController, 'search']);
 $router->get('/timbo/compra/', [$menuController, 'purchase']);
+$router->get('/timbo/compra/gracias/', [$menuController, 'thankYou']);
+$router->get('/timbo/perfil/mis-ordenes/', [$menuController, 'myOrders']);
 $router->post('/timbo/process/purchase/', [$menuController, 'redirectPurchase']);
 $router->post('/timbo/make/order/', [$menuController, 'storeOrder']);
 

@@ -68,6 +68,21 @@ class MenuController
       )
     );
 
-    header("location: /timbo/");
+    header("location: /timbo/compra/gracias/");
+  }
+
+  public function thankYou(): void
+  {
+    require 'app/views/thank-you.php';
+  }
+
+  public function myOrders(): void
+  {
+    $orders = $this->pdoOrderSummaryRepository->findAllByUserId(
+      UserSession::getValue('user-id')
+    );
+    $orderCount = sizeof($orders);
+
+    require 'app/views/user/mis-ordenes.php';
   }
 }

@@ -98,6 +98,46 @@ class PdoOrderSummaryRepository
     return $orderSummaries;
   }
 
+  /** @return array<OrderSummary> */
+  public function findAllByUserId(int $userId): array
+  {
+    $st = $this->db->prepare("
+      SELECT id, date, user_id, payment_method_id FROM `order` o
+      WHERE user_id = :userId;
+    ");
+
+    $st->execute([':userId' => $userId]);
+    $results = $st->fetchAll(PDO::FETCH_ASSOC);
+
+    if (!$results) {
+      return [];
+    }
+
+    $orderSummaries = array_map(function ($result) {
+
+      $stProducts = $this->db->prepare("
+        SELECT * FROM order_products WHERE order_id = :orderId;
+      ");
+      $stProducts->execute([':orderId' => $result['id']]);
+      $productsResults = $stProducts->fetchAll(PDO::FETCH_ASSOC);
+      $products = array_map(function ($productResult) {
+        return new ProductOnCart(
+          $productResult['product_id'],
+          $productResult['quantity'],
+        );
+      }, $productsResults);
+
+      return new OrderSummary(
+        new DateTime($result['date']),
+        $result['user_id'],
+        $result['payment_method_id'],
+        $products
+      );
+    }, $results);
+
+    return $orderSummaries;
+  }
+
   public function findOrderCountAndSales(): array
   {
     $st = $this->db->prepare("
