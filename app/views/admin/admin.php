@@ -19,7 +19,7 @@
       <ul class="admin-orders" role="list">
         <?php foreach ($orders as $order):  ?>
           <li>
-            <h3>X Orden Realizada</h3>
+            <h3>⦾ Orden Realizada</h3>
             <p><?= $order->getDate()->format('d \d\e F \a \l\a\s h:i A') ?></p>
             <h4>Productos</h4>
             <ul>
