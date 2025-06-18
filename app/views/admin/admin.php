@@ -14,7 +14,8 @@
     <div class="container">
       <h1>Administración</h1>
 
-      <h2>Órdenes Realizadas</h2>
+      <h2>Volumen de Órdenes Realizadas: <?= $orderCountAndSales[0]; ?></h2>
+      <h2>Total de Ventas Realizadas: S/<?= $orderCountAndSales[1]; ?></h2>
       <ul class="admin-orders" role="list">
         <?php foreach ($orders as $order):  ?>
           <li>
@@ -22,12 +23,14 @@
             <p><?= $order->getDate()->format('d \d\e F \a \l\a\s h:i A') ?></p>
             <h4>Productos</h4>
             <ul>
+              <?php $total = 0; ?>
               <?php foreach ($order->getOrderProducts() as $product):  ?>
                 <?php $productSummary = $this->pdoProductRepository->findProductSummaryById($product->getId()) ?>
+                <?php $total += $product->getQuantity() * $productSummary->getPrice(); ?>
                 <li><?= $productSummary->getName() ?> (x<?= $product->getQuantity() ?>)</li>
               <?php endforeach; ?>
             </ul>
-            <p><b>Total:</b> S/139.90</p>
+            <p><b>Total:</b> S/<?= number_format($total, 2) ?></p>
             <?php $orderMaker = $this->pdoUserRepository->findUserById($order->getUserId())  ?>
             <p>Orden realizada por: <?= $orderMaker->getName() ?>.</p>
           </li>

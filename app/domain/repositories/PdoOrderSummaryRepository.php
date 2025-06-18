@@ -97,4 +97,22 @@ class PdoOrderSummaryRepository
 
     return $orderSummaries;
   }
+
+  public function findOrderCountAndSales(): array
+  {
+    $st = $this->db->prepare("
+      SELECT 
+        COUNT(DISTINCT o.id) AS order_count,
+        SUM(op.total) AS total_earnings
+      FROM `order` o
+        INNER JOIN order_products op
+          ON o.id = op.order_id
+      INNER JOIN product p
+        ON op.product_id = p.id;
+    ");
+
+    $st->execute();
+    $result = $st->fetch(PDO::FETCH_ASSOC);
+    return [$result['order_count'], $result['total_earnings']];
+  }
 }

@@ -24,6 +24,7 @@ class AdminController
     }
 
     $orders = $this->pdoOrderSummaryRepository->findAll();
+    $orderCountAndSales = $this->pdoOrderSummaryRepository->findOrderCountAndSales();
 
     require 'app/views/admin/admin.php';
   }
