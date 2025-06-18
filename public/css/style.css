@@ -503,3 +503,19 @@ h4, .h4 {
   padding: 10px;
   box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.178);
 }
+
+/* Admin */
+.admin-orders {
+  padding-left: 0;
+  margin-block: 0;
+}
+
+.admin-orders > * {
+  border: 2px solid black;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.admin-orders > * + * {
+  margin-top: 1rem;
+}

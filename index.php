@@ -12,6 +12,7 @@ require $BASE_PATH . '/app/helpers/UserSession.php';
 
 require $BASE_PATH . '/app/controllers/MenuController.php';
 require $BASE_PATH . '/app/controllers/LoginController.php';
+require $BASE_PATH . '/app/controllers/admin/AdminController.php';
 
 require $BASE_PATH . '/app/domain/ProductSummary.php';
 require $BASE_PATH . '/app/domain/OrderSummary.php';
@@ -56,6 +57,12 @@ $loginController = new LoginController(
   $pdoUserRepository,
   $pdoUserRoleRepository
 );
+$adminController = new AdminController(
+  $pdoProductRepository,
+  $pdoOrderSummaryRepository,
+  $pdoUserRepository,
+  $pdoUserRoleRepository,
+);
 
 // 1. Menu
 $router->get('/timbo/', [$menuController, 'index']);
@@ -73,6 +80,9 @@ $router->post('/timbo/make/order/', [$menuController, 'storeOrder']);
 /account/location/ (Direcciones creadas por el cliente)
 /account/orders/ (Pedidos del cl, id pedido, precio total, estado, fecha y hora)
 */
+
+// 4. Admin
+$router->get('/timbo/admin/', [$adminController, 'index']);
 
 // 4. Login
 $router->get('/timbo/login/', [$loginController, 'index']);

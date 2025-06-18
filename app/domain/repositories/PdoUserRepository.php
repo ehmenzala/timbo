@@ -8,6 +8,32 @@ class PdoUserRepository
     private PdoUserRoleRepository $pdoUserRoleRepository
   ) {}
 
+  public function findUserById(string $userId): ?LoggedInUser
+  {
+    $st = $this->db->prepare("
+      SELECT id, name, password, email FROM user
+      WHERE id=:userId;
+    ");
+
+    $st->execute([':userId' => $userId]);
+    $result = $st->fetch();
+    $st->closeCursor();
+
+    if (!$result) {
+      return null;
+    }
+
+    $roles = $this->pdoUserRoleRepository->findAllRolesByUserId($result['id']);
+
+    return new LoggedInUser(
+      $result['id'],
+      $result['name'],
+      $result['email'],
+      $result['password'],
+      $roles,
+    );
+  }
+
   public function findUserByEmail(string $email): ?LoggedInUser
   {
     $st = $this->db->prepare("
