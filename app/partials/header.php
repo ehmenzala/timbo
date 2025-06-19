@@ -1,9 +1,11 @@
 <header class="header">
   <div class="header__content container">
-    <img
-      src="/timbo/public/img/timbo-logo.png"
-      alt="Logo del restaurante. Gran Parrillada Timbó escrito con letras rojas cuadriculadas dentro de un espacio ovalado, con borde grueso de color turquesa."
-      class="header-logo" />
+    <a href="/timbo/">
+      <img
+        src="/timbo/public/img/timbo-logo.png"
+        alt="Logo del restaurante. Gran Parrillada Timbó escrito con letras rojas cuadriculadas dentro de un espacio ovalado, con borde grueso de color turquesa."
+        class="header-logo" />
+    </a>
     <div class="header__controls">
       <form action="/timbo/busqueda/" method="GET">
         <div class="header-search-wrapper">
