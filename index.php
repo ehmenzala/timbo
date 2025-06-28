@@ -14,6 +14,8 @@ require $BASE_PATH . '/app/controllers/MenuController.php';
 require $BASE_PATH . '/app/controllers/LoginController.php';
 require $BASE_PATH . '/app/controllers/admin/AdminController.php';
 
+require $BASE_PATH . '/app/tests/TestController.php';
+
 require $BASE_PATH . '/app/domain/ProductSummary.php';
 require $BASE_PATH . '/app/domain/OrderSummary.php';
 require $BASE_PATH . '/app/domain/PaymentMethod.php';
@@ -64,6 +66,8 @@ $adminController = new AdminController(
   $pdoUserRoleRepository,
 );
 
+$testController = new TestController();
+
 // 1. Menu
 $router->get('/timbo/', [$menuController, 'index']);
 $router->get('/timbo/busqueda/', [$menuController, 'search']);
@@ -86,11 +90,24 @@ $router->post('/timbo/make/order/', [$menuController, 'storeOrder']);
 // 4. Admin
 $router->get('/timbo/admin/', [$adminController, 'index']);
 
-// 4. Login
+// 5. Login
 $router->get('/timbo/login/', [$loginController, 'index']);
 $router->get('/timbo/register/', [$loginController, 'register']);
 $router->get('/timbo/logout/user/', [$loginController, 'logUserOut']);
 $router->post('/timbo/login/user/', [$loginController, 'logUserIn']);
 $router->post('/timbo/register/user/', [$loginController, 'storeUser']);
+
+// 6. Tests
+$router->get('/timbo/test/create-order/', [$testController, 'test_create_order']);
+$router->get('/timbo/test/get-order-summary/', [$testController, 'test_get_order_summary']);
+
+$router->get('/timbo/test/register-user/', [$testController, 'test_register_user']);
+$router->get('/timbo/test/authenticate-user/', [$testController, 'test_authenticate_user']);
+$router->get('/timbo/test/assign-user-role/', [$testController, 'test_assign_user_role']);
+
+$router->get('/timbo/test/create-product/', [$testController, 'test_create_product']);
+$router->get('/timbo/test/get-product-summary/', [$testController, 'test_get_product_summary']);
+
+
 
 $router->route($uri, $method);
