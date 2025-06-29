@@ -100,13 +100,11 @@ $router->post('/timbo/register/user/', [$loginController, 'storeUser']);
 // 6. Tests
 $router->get('/timbo/test/create-order/', [$testController, 'test_create_order']);
 $router->get('/timbo/test/get-order-summary/', [$testController, 'test_get_order_summary']);
-
+$router->get('/timbo/test/create-product/', [$testController, 'test_create_product']);
+$router->get('/timbo/test/get-product-summary/', [$testController, 'test_get_product_summary']);
 $router->get('/timbo/test/register-user/', [$testController, 'test_register_user']);
 $router->get('/timbo/test/authenticate-user/', [$testController, 'test_authenticate_user']);
 $router->get('/timbo/test/assign-user-role/', [$testController, 'test_assign_user_role']);
-
-$router->get('/timbo/test/create-product/', [$testController, 'test_create_product']);
-$router->get('/timbo/test/get-product-summary/', [$testController, 'test_get_product_summary']);
 
 
 
