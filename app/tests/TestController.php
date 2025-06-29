@@ -58,7 +58,7 @@ class TestController
   {
     return $this->runTest('Crear producto', function () {
 
-      $this->logTestResult('[' . date("Y-m-d H:i:s") . '] - Se el producto de prueba con éxito (1/1).' . PHP_EOL);
+      $this->logTestResult('[' . date("Y-m-d H:i:s") . '] - Se creó el producto de prueba con éxito (1/1).' . PHP_EOL);
       //$orden->id
       if (!false) {
         throw new Exception("No se creó la orden correctamente.");
