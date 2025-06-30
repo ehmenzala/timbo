@@ -54,3 +54,11 @@ ad.js
 plugins/
 public/img/avatars/
 !public/img/avatars/anonimo.jpg
+
+# Playwright
+node_modules/
+/**/tests/playwright/test-results/
+/**/tests/playwright/playwright-report/
+/**/tests/playwright/blob-report/
+/**/tests/playwright/playwright/.cache/
+
