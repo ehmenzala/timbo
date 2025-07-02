@@ -519,3 +519,23 @@ h4, .h4 {
 .admin-orders > * + * {
   margin-top: 1rem;
 }
+
+.purchase-form {
+  display: grid;
+  gap: 1rem;
+  width: 800px;
+  padding: 1rem;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-group > input,
+.input-group > select {
+  padding: .5rem;
+}

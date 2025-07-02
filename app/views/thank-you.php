@@ -18,7 +18,7 @@
       <p>Tu pedido llegará en aproximadamente 60 minutos.</p>
       <p>No te olvides seguirnos en nuestra redes sociales.</p>
       <p>¡Visítanos pronto! ¡Te esperamos!.</p>
-      <a href="/timbo/perfil/mis-ordenes/" class="btn btn-primary">Ira Mis Órdenes</a>
+      <a href="/timbo/perfil/mis-ordenes/" class="btn btn-primary">Ir a Mis Órdenes</a>
     </div>
   </main>
   <?php include('app/partials/footer.php') ?>
